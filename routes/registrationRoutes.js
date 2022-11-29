@@ -3,10 +3,11 @@ const express = require('express');
 const route = express.Router();
 
 const render = require('../lib/render');
-const Auth = require('../views/Auth');
+
+const Registration = require('../views/Registration');
 
 route.get('/', (req, res) => {
-  render(Auth, { title: 'well done' }, res);
+  render(Registration, { title: 'well done' }, res);
 });
 
 module.exports = route;
