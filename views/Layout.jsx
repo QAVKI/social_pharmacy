@@ -17,7 +17,7 @@ function Layout({ title, children }) {
 
       </head>
       <body>
-        <nav className="navbar navbar-expand-lg bg-light">
+        <nav className="navbar navbar-expand-lg container">
           <div className="container-fluid">
             {/* <a className="navbar-brand" href="#"></a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Переключатель навигации">
@@ -29,7 +29,10 @@ function Layout({ title, children }) {
                   <img className="logo" src="https://avatars.mds.yandex.net/get-mpic/4762868/img_id3821892217196244375.jpeg/9" alt="" />
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/reg">Регистрация</a>
+                  <a className="nav-link active" aria-current="page" href="/home">Главная</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/reg">Регистрация</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/auth">Авторизация</a>
