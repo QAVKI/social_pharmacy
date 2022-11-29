@@ -4,10 +4,10 @@ const route = express.Router();
 
 const render = require('../lib/render');
 
-const Authentication = require('../views/Authentication');
+const Signin = require('../views/Signin');
 
 route.get('/', (req, res) => {
-  render(Authentication, { title: 'well done' }, res);
+  render(Signin, { title: 'well done' }, res);
 });
 
 module.exports = route;
