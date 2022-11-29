@@ -5,8 +5,26 @@
     margin-left: auto;
   }
 
-.logo {
+img {
   max-width: 80px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  max-width: 200px;
+}
+
+main {
+  width: 1000px;
+  height: 1000px;
+}
+
+
+.navbar {
+  background-color: rgb(82, 189, 82);
 }
 
   @media (min-width: 768px) {

@@ -19,7 +19,6 @@ const homeRoutes = require('./routes/homeRoutes');
 const saleRoutes = require('./routes/saleRoutes');
 const basketRoutes = require('./routes/basketRoutes');
 
-
 // вызов функции проверки соединения с базоый данных
 // dbCheck();
 
