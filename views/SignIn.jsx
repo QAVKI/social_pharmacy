@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Authentication({ title }) {
+function Signin({ title }) {
   return (
     <Layout>
       <div className="container mt-5">
@@ -37,4 +37,4 @@ function Authentication({ title }) {
   );
 }
 
-module.exports = Authentication;
+module.exports = Signin;

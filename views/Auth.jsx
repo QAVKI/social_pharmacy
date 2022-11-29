@@ -6,7 +6,7 @@ function Auth({title}) {
     <Layout>
       <div>
         <a href="/auth/registration">Регистрация</a>
-        <a href="auth">Авторизация</a>
+        <a href="/auth/signin">Авторизация</a>
       </div>
     </Layout>
   );
