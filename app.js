@@ -12,9 +12,13 @@ require('dotenv').config();
 // импорт роутов
 const indexRoutes = require('./routes/indexRoutes');
 const authRoutes = require('./routes/authRoutes');
+
+const registrationRoutes = require('./routes/registrationRoutes');
+
 const homeRoutes = require('./routes/homeRoutes');
 const saleRoutes = require('./routes/saleRoutes');
 const basketRoutes = require('./routes/basketRoutes');
+
 
 // вызов функции проверки соединения с базоый данных
 // dbCheck();
@@ -27,9 +31,13 @@ app.use(express.json());
 // роутеры
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
+
+app.use('/auth/registration', registrationRoutes);
+
 app.use('/home', homeRoutes);
 app.use('/sale', saleRoutes);
 app.use('/basket', basketRoutes);
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
