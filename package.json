@@ -1,12 +1,13 @@
 {
-  "name": "Express-ReactSSR",
+  "name": "express-reactssr",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js --ignore session --ext js,jsx",
     "dbr": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "db-up": "npx sequelize db:create; npx sequelize db:migrate; npx sequelize db:seed:all;",
+    "db-down": "npx sequelize db:migrate:undo:all; npx sequelize db:drop;",
     "test": "jest"
   },
   "keywords": [],
@@ -36,5 +37,17 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QAVKI/social_pharmacy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/QAVKI/social_pharmacy/issues"
+  },
+  "homepage": "https://github.com/QAVKI/social_pharmacy#readme",
+  "description": ""
 }
