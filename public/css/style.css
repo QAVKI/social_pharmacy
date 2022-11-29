@@ -4,9 +4,12 @@
     margin-right: auto;
     margin-left: auto;
   }
-
-img {
+.logo {
   max-width: 80px;
+}
+
+.card-img-top {
+  max-width: 300px;
 }
 
 .card {
@@ -14,7 +17,7 @@ img {
   justify-content: center;
   align-items: center;
   margin: 2rem;
-  max-width: 200px;
+  max-width: 300px;
 }
 
 main {
