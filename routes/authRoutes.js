@@ -3,10 +3,10 @@ const express = require('express');
 const route = express.Router();
 
 const render = require('../lib/render');
-const Index = require('../views/Index');
+const Auth = require('../views/Auth');
 
 route.get('/', (req, res) => {
-  render(Index, { title: 'Welcome to Express - ReactSSR' }, res);
+  render(Auth, { title: 'well done' }, res);
 });
 
 module.exports = route;
