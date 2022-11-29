@@ -6,22 +6,24 @@ const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
 
-//импорт вспомогательных ф-й
-const dbCheck = require('./db/dbCheck');
+// импорт вспомогательных ф-й
+// const dbCheck = require('./db/dbCheck');
 
 // импорт роутов
 const indexRoutes = require('./routes/indexRoutes');
+const authRoutes = require('./routes/authRoutes');
 
- // вызов функции проверки соединения с базоый данных
-dbCheck();
+// вызов функции проверки соединения с базоый данных
+// dbCheck();
 
 app.use(express.static(path.resolve('public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//роутеры
+// роутеры
 app.use('/', indexRoutes);
+app.use('/auth', authRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
