@@ -42,7 +42,7 @@ function Registration() {
               minLength={3}
             />
           </div>
-          <button type="submit" className="btn btn-light">
+          <button type="submit" className="btn-light">
             Зарегистрироваться
           </button>
         </form>
