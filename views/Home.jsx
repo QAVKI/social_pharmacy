@@ -29,22 +29,36 @@ function Home({ title, children, select, user }) {
           <div data-log="1" id={`s${el.sale}`} className="card ">
             <img src={`${el.logo}`} className="card-img-top" alt="" />
             <div className="card-body">
-              <h5>{el.title}</h5>
-              <p className="price">
-                Цена:
-                {' '}
-                {el.price}
-                {' '}
-                рублей
-              </p>
-              <p>
-                Цена на сегодня:
-                {' '}
-                <strong>{Math.round(el.price * (1 - el.sale * 0.01))}</strong>
-                {' '}
-                рублей
-
-              </p>
+              {el.sale === 0 ? (
+                <>
+                  <h5>{el.title}</h5>
+                  <p>
+                    Цена:
+                    {' '}
+                    {el.price}
+                    {' '}
+                    рублей
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h5>{el.title}</h5>
+                  <p className="price">
+                    Цена:
+                    {' '}
+                    {el.price}
+                    {' '}
+                    рублей
+                  </p>
+                  <p>
+                    Цена на сегодня:
+                    {' '}
+                    <strong>{Math.round(el.price * (1 - el.sale * 0.01))}</strong>
+                    {' '}
+                    рублей
+                  </p>
+                </>
+              )}
               <p>
                 В наличии:
                 {' '}
