@@ -15,11 +15,8 @@ const transporter = nodemailer.createTransport(
     secure: false,
     auth: {
       user: 'zhtmn@icloud.com',
-      pass: 'gtyj-rseu-egqw-wvfm',
+      pass: 'cotn-zjpz-ttyz-fxwg',
     },
-  },
-  {
-    from: '<zhtmn@icloud.com >',
   },
 );
 
@@ -28,13 +25,7 @@ module.exports = function mailer(message) {
     if (err) return console.log(err);
     console.log('Email sent: ', info);
   });
-}
-const message = {
-  to: 'pauk.zabrodin@yandex.ru',
-  subject: 'Succes',
-  text: 'Поздравляем, вы зарегестрированы, можете бежать за покупками!',
 };
-// mailer(message);
 
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
