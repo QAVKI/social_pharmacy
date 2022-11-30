@@ -12,12 +12,16 @@ const loginUser = async (req, res) => {
   const { login, password } = req.body;
   try {
     const user = await User.findOne({ where: { login } });
-    const passCheck = await bcrypt.compare(password, user.password);
-    if (passCheck) {
-      req.session.newUser = user.login;
-      req.session.save(() => {
-        res.redirect('/home');
-      });
+    if (user) {
+      const passCheck = await bcrypt.compare(password, user.password);
+      if (passCheck) {
+        req.session.newUser = user.login;
+        req.session.save(() => {
+          res.redirect('/home');
+        });
+      } else {
+        res.redirect('/auth/registration');
+      }
     } else {
       res.redirect('/auth/registration');
     }
