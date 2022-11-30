@@ -1,18 +1,18 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Registration({ title }) {
+function Registration() {
   return (
     <Layout>
       <div className="container mt-5">
         <h2>Регистрация</h2>
         <form id="signupForm" method="POST" action="/auth/registration">
           <div className="form-group">
-            <label htmlFor="username">Логин:</label>
+            <label htmlFor="login">Логин:</label>
             <input
-              id="username"
+              id="login"
               className="form-control"
-              name="name"
+              name="login"
               type="text"
               required
               pattern="[A-Za-z]\w+"
