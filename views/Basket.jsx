@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Basket() {
+function Basket({user}) {
   return (
-    <Layout>
+    <Layout user={user}>
 
       <div className="basket">
         <h1>Корзина</h1>
