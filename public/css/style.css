@@ -3,7 +3,28 @@
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 10px;
   }
+
+.but {
+  width: 150px;
+  margin: 10px;
+}
+
+body {
+  background-color: rgb(189, 241, 241);
+}
+
+.nav-item {
+  background-color: aquamarine;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 150px;
+}
+
 .logo {
   max-width: 80px;
 }
@@ -25,9 +46,13 @@ main {
   height: 1000px;
 }
 
+.price {
+  background-image: linear-gradient(to bottom right, transparent 45%, rgb(0, 0, 0), transparent 51%);
+}
 
 .navbar {
   background-color: rgb(82, 189, 82);
+  border-radius: 50px;
 }
 
   @media (min-width: 768px) {
@@ -35,9 +60,18 @@ main {
       width: 750px;
     }
   }
-  @media (min-width: 992px) {
+  @media (min-width: 992px) and (max-width: 1199px) {
     .container {
       width: 970px;
+    }
+    .nav-item {
+      background-color: aquamarine;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      width: 120px;
     }
   }
   @media (min-width: 1200px) {

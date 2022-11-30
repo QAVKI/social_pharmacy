@@ -13,7 +13,6 @@ const FileStore = require('session-file-store')(session);
 
 // импорт роутов
 const indexRoutes = require('./routes/indexRoutes');
-const authRoutes = require('./routes/authRoutes');
 
 const registrationRoutes = require('./routes/registrationRoutes');
 const signinRoutes = require('./routes/signinRoutes');
@@ -47,7 +46,6 @@ app.use(express.json());
 
 // роутеры
 app.use('/', indexRoutes);
-app.use('/auth', authRoutes);
 
 app.use('/auth/registration', registrationRoutes);
 app.use('/auth/signin', signinRoutes);
@@ -55,7 +53,6 @@ app.use('/auth/signin', signinRoutes);
 app.use('/home', homeRoutes);
 app.use('/sale', saleRoutes);
 app.use('/basket', basketRoutes);
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
