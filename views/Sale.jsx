@@ -12,7 +12,7 @@ function Sale({ title, cards }) {
             <div className="card-body">
               <h5>{el.title}</h5>
               <p className="price">Цена: {el.price} рублей</p>
-              <p>Цена на сегодня: <strong>{el.price * (el.sale / 100)}</strong> рублей</p>
+              <p>Цена на сегодня: <strong>{Math.round(el.price * (1 - el.sale * 0.01))}</strong> рублей</p>
               <p>В наличии: {el.count}</p>
               <button type="button" className="btn btn-info">Купить</button>
             </div>

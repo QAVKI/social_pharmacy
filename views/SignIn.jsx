@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Signin({ title }) {
+function Signin() {
   return (
     <Layout>
       <div className="container mt-5">
@@ -10,9 +10,9 @@ function Signin({ title }) {
           <div className="form-group">
             <label htmlFor="username">Логин:</label>
             <input
-              id="username"
+              id="login"
               className="form-control"
-              name="name"
+              name="login"
               type="text"
               required
             />

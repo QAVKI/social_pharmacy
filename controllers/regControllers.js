@@ -11,8 +11,8 @@ const renderRegister = (req, res) => {
 const regUser = async (req, res) => {
   const { login, password, email } = req.body;
   try {
-    const hash = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ login, password: hash, email });
+    const hashPas = await bcrypt.hash(password, 10);
+    const newUser = await User.create({ login, password: hashPas, email });
     console.log('новый юзер======>>>>>>>>>>>>>', newUser);
     req.session.newUser = newUser.login;
     req.session.save(() => {
