@@ -10,12 +10,16 @@
   background-color: lightskyblue;
 }
 .btn-info {
-  width: 150px;
+  /* display: -moz-inline-stack; */
+  margin-left: 15px;
+  width: 250px;
   margin: 10px;
-  justify-content: center;
+  justify-content: space-around;
   background-color: lightskyblue;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5)
 }
-.but {
+.btn {
+  margin-top: auto;
   width: 150px;
   margin: 10px;
   background-color: lightskyblue;
@@ -45,13 +49,16 @@ body {
 
 .card-img-top {
   max-width: 300px;
+  margin-top: 15 px;
+  margin: 10px;
+  margin-right: 10px;
 
 }
 
 .card {
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
   margin: 2rem;
   max-width: 300px;
   backface-visibility: 50%;
@@ -89,7 +96,7 @@ main {
       justify-content: center;
       align-items: center;
       margin: 10px;
-      /* width: 120px; */
+      width: 120px;
       margin-left: 50px;
     }
   }
