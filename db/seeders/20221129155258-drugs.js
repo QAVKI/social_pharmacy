@@ -96,7 +96,7 @@ module.exports = {
         price: 544,
         sale: 0,
         logo: '/DrugsPic/Zabrodin.png',
-        count: 1,
+        count: 0,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

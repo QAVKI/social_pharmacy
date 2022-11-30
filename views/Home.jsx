@@ -4,9 +4,20 @@ const Layout = require('./Layout');
 function Home({ title, children }) {
   return (
     <Layout>
+      {/* <div className="container raw">
+        <div data-log="1" id={`s${children[0].sale}`} className="card ">
+          <img src={`${children[0].logo}`} className="card-img-top" alt="" />
+          <div className="card-body">
+            <h5>{children[0].title}</h5>
+            <p>
+              В наличии: {children[0].count}</p>
+            <button type="button" className="btn btn-info">Получить</button>
+          </div>
+        </div>
+      </div> */}
       <div className="container">
         <button type="button" className="btn btn-info but">Сортировать по цене</button>
-        <button type="button" className="btn btn-info but">Сортировать по наличию</button>
+        <button type="button" className="btn btn-info but count">Сортировать по наличию</button>
       </div>
       <div key={Math.random() * 999999} className="container row row-cols-1 row-cols-md-2 g-4">
         {children.map((el) => (
