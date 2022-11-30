@@ -19,10 +19,9 @@ function Layout({ title, children }) {
       <body>
         <nav className="navbar navbar-expand-lg container">
           <div className="container-fluid">
-            {/* <a className="navbar-brand" href="#"></a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Переключатель навигации">
-              <span className="navbar-toggler-icon"></span>
-            </button> */}
+              <span className="navbar-toggler-icon" />
+            </button>
             <div className="collapse navbar-collapse" id="navbarText">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
@@ -32,10 +31,10 @@ function Layout({ title, children }) {
                   <a className="nav-link active" aria-current="page" href="/home">Главная</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/reg">Регистрация</a>
+                  <a className="nav-link" href="/auth/registration">Регистрация</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/auth">Авторизация</a>
+                  <a className="nav-link" href="/auth/signin">Авторизация</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/sale">Скидки</a>
