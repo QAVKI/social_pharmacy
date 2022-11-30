@@ -1,16 +1,27 @@
 const express = require('express');
 
 const route = express.Router();
-const { Drug } = require('../db/models');
+const { Drug, Select } = require('../db/models');
 
 const render = require('../lib/render');
 const Home = require('../views/Home');
 
 route.get('/', async (req, res) => {
+
   const user = req.session.newUser;
+  const select = await Select.findAll({
+    atttibutes: 'drug_id',
+    raw: true,
+    include: [
+      {
+        model: Drug,
+      },
+    ],
+  });
+  // console.log(select);
   const children = await Drug.findAll({ raw: true });
-  console.log(children);
-  render(Home, { title: 'home', children, user }, res);
+  // console.log(children);
+  render(Home, { title: 'home', children, select, user }, res);
 });
 
 module.exports = route;
