@@ -1,7 +1,6 @@
 const priceButton = document.querySelector('.but');
 const countButton = document.querySelector('.count');
 const drugs = document.querySelectorAll('[data-log]');
-// console.log(drugs, '--------------------------------------------------------------------------------------');
 
 let htmlArr;
 let mark = false;
