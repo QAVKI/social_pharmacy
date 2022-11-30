@@ -6,10 +6,39 @@ const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
 
+const nodemailer = require('nodemailer');
+
+const transporter = nodemailer.createTransport(
+  {
+    host: 'smtp.mail.me.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: 'zhtmn@icloud.com',
+      pass: 'gtyj-rseu-egqw-wvfm',
+    },
+  },
+  {
+    from: '<zhtmn@icloud.com >',
+  },
+);
+
+module.exports = function mailer(message) {
+  transporter.sendMail(message, (err, info) => {
+    if (err) return console.log(err);
+    console.log('Email sent: ', info);
+  });
+}
+const message = {
+  to: 'pauk.zabrodin@yandex.ru',
+  subject: 'Succes',
+  text: 'Поздравляем, вы зарегестрированы, можете бежать за покупками!',
+};
+// mailer(message);
+
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 // импорт вспомогательных ф-й
-// const dbCheck = require('./db/dbCheck');
 
 // импорт роутов
 const indexRoutes = require('./routes/indexRoutes');
