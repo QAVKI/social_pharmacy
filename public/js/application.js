@@ -4,7 +4,7 @@ const drugs = document.querySelectorAll('[data-log]');
 let htmlArr;
 let mark = false;
 
-priceButton.addEventListener('click', async (event) => {
+priceButton?.addEventListener('click', async (event) => {
   const container = document.querySelector('.row-cols-md-2');
   event.preventDefault();
   if (mark === false) {

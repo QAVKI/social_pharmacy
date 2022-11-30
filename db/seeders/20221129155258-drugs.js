@@ -3,7 +3,7 @@ module.exports = {
     await queryInterface.bulkInsert('Drugs', [
       {
         title: 'Эльбрусин',
-        price: 99999,
+        price: 1000,
         sale: 10,
         logo: '/DrugsPic/Elbrus.png',
         count: 3,
@@ -13,7 +13,7 @@ module.exports = {
       {
         title: 'Бубеева лайт',
         price: 745,
-        sale: 0,
+        sale: 20,
         logo: '/DrugsPic/Bubeeva.png',
         count: 1,
         createdAt: new Date(),
@@ -22,7 +22,7 @@ module.exports = {
       {
         title: 'Доденко-форте',
         price: 777,
-        sale: 1,
+        sale: 30,
         logo: '/DrugsPic/Dodenko.png',
         count: 2,
         createdAt: new Date(),
@@ -31,7 +31,7 @@ module.exports = {
       {
         title: 'Втораяфазин',
         price: 666,
-        sale: 99,
+        sale: 0,
         logo: '/DrugsPic/Faza.png',
         count: 2,
         createdAt: new Date(),
@@ -40,7 +40,7 @@ module.exports = {
       {
         title: 'Корейша Д3',
         price: 453,
-        sale: 25,
+        sale: 0,
         logo: '/DrugsPic/Koreisha.png',
         count: 4,
         createdAt: new Date(),
@@ -49,7 +49,7 @@ module.exports = {
       {
         title: 'Налбандянг',
         price: 666,
-        sale: 1,
+        sale: 0,
         logo: '/DrugsPic/Nalbandyan.png',
         count: 1,
         createdAt: new Date(),
@@ -58,7 +58,7 @@ module.exports = {
       {
         title: 'Образцов лайт',
         price: 555,
-        sale: 15,
+        sale: 0,
         logo: '/DrugsPic/Obraztcov.png',
         count: 6,
         createdAt: new Date(),
@@ -67,7 +67,7 @@ module.exports = {
       {
         title: 'Парамзин плюс',
         price: 800,
-        sale: 1,
+        sale: 0,
         logo: '/DrugsPic/Paramzin.png',
         count: 4,
         createdAt: new Date(),
@@ -76,7 +76,7 @@ module.exports = {
       {
         title: 'Учкин чек',
         price: 310,
-        sale: 23,
+        sale: 0,
         logo: '/DrugsPic/Uchkin.png',
         count: 9,
         createdAt: new Date(),
@@ -85,7 +85,7 @@ module.exports = {
       {
         title: 'Васькова плюс',
         price: 350,
-        sale: 33,
+        sale: 0,
         logo: '/DrugsPic/Vaskova.png',
         count: 6,
         createdAt: new Date(),
@@ -94,7 +94,7 @@ module.exports = {
       {
         title: 'Забродин ультра',
         price: 544,
-        sale: 1,
+        sale: 0,
         logo: '/DrugsPic/Zabrodin.png',
         count: 1,
         createdAt: new Date(),
@@ -103,7 +103,7 @@ module.exports = {
       {
         title: 'Желобцов плюс',
         price: 580,
-        sale: 1,
+        sale: 0,
         logo: '/DrugsPic/Zhelobtsov.png',
         count: 1,
         createdAt: new Date(),
