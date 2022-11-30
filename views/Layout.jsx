@@ -1,13 +1,15 @@
 const React = require('react');
 
-function Layout({ title, children }) {
+function Layout({ title, children, user }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <title>{title ? title : "Pharmacy"}</title>
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossOrigin="anonymous" />
         <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossOrigin="anonymous" />
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossOrigin="anonymous" />
@@ -30,18 +32,38 @@ function Layout({ title, children }) {
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="/home">Главная</a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/auth/registration">Регистрация</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/auth/signin">Авторизация</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/sale">Скидки</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/basket">Корзина</a>
-                </li>
+                {user ? (
+                  <>
+                    <li className="nav-item">
+                      <a className="nav-link" href="#">Привет {user}</a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/signout">Выйти</a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/sale">Скидки</a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/basket">Корзина</a>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/auth/registration">Регистрация</a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/auth/signin">Авторизация</a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/sale">Скидки</a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link" href="/basket">Корзина</a>
+                    </li>
+                  </>
+                )}
+
               </ul>
             </div>
           </div>

@@ -7,6 +7,8 @@ const render = require('../lib/render');
 const Home = require('../views/Home');
 
 route.get('/', async (req, res) => {
+
+  const user = req.session.newUser;
   const select = await Select.findAll({
     atttibutes: 'drug_id',
     raw: true,
@@ -19,7 +21,7 @@ route.get('/', async (req, res) => {
   // console.log(select);
   const children = await Drug.findAll({ raw: true });
   // console.log(children);
-  render(Home, { title: 'home', children, select }, res);
+  render(Home, { title: 'home', children, select, user }, res);
 });
 
 module.exports = route;

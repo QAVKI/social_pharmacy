@@ -1,9 +1,10 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Home({ title, children, select }) {
+
+function Home({ title, children, select, user }) {
   return (
-    <Layout>
+    <Layout user={user}>
       <div className="container raw row row-cols-1">
         {select.map((el) => (
           <div className="card ">
@@ -17,6 +18,7 @@ function Home({ title, children, select }) {
           </div>
         ))}
       </div>
+
       <div className="container">
         <button type="button" className="btn btn-info but">Сортировать по цене</button>
         <button type="button" className="btn btn-info but count">Сортировать по наличию</button>
