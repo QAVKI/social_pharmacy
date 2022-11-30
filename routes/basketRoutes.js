@@ -12,6 +12,4 @@ route.get('/', (req, res) => {
   render(BasketViews, { title: 'basket', user }, res);
 });
 
-
-
 module.exports = route;
