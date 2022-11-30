@@ -3,10 +3,14 @@ const express = require('express');
 const route = express.Router();
 
 const render = require('../lib/render');
-const Index = require('../views/Index');
+const BasketViews = require('../views/Basket');
+
+const { Basket, Drug } = require('../db/models');
 
 route.get('/', (req, res) => {
-  render(Index, { title: 'basket' }, res);
+  render(BasketViews, { title: 'basket' }, res);
 });
+
+
 
 module.exports = route;
