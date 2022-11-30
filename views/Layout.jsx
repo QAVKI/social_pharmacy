@@ -28,7 +28,7 @@ function Layout({ title, children, user }) {
             <div className="collapse navbar-collapse" id="navbarText">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <img className="logo" src="https://avatars.mds.yandex.net/get-mpic/4762868/img_id3821892217196244375.jpeg/9" alt="" />
+                  <img className="logo" src="/logo.png" alt="" />
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="/home">Главная</a>
