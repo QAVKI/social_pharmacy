@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Home({ title, children }) {
+function Home({ title, children, user}) {
   return (
-    <Layout>
+    <Layout user={user}>
       <div className="container">
         <button type="button" className="btn btn-info but">Сортировать по цене</button>
         <button type="button" className="btn btn-info but">Сортировать по наличию</button>

@@ -16,6 +16,7 @@ const indexRoutes = require('./routes/indexRoutes');
 
 const registrationRoutes = require('./routes/registrationRoutes');
 const signinRoutes = require('./routes/signinRoutes');
+const signOutRoutes = require('./routes/signOutRoutes');
 
 const homeRoutes = require('./routes/homeRoutes');
 const saleRoutes = require('./routes/saleRoutes');
@@ -50,6 +51,7 @@ app.use('/', indexRoutes);
 
 app.use('/auth/registration', registrationRoutes);
 app.use('/auth/signin', signinRoutes);
+app.use('/signout', signOutRoutes);
 
 app.use('/home', homeRoutes);
 app.use('/sale', saleRoutes);
