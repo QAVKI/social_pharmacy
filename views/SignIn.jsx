@@ -27,7 +27,7 @@ function Signin() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-light">
+          <button type="submit" className="btn-light">
             Войти
           </button>
         </form>

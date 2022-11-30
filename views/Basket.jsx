@@ -16,7 +16,7 @@ function Basket({user}) {
             Итого:
 
           </p>
-          <button type="button" className="orderBtn btn btn-success" data-total="{{total}}">Оформить заказ</button>
+          <button type="button" className="btn-success" data-total="{{total}}">Оформить заказ</button>
         </div>
 
       </div>

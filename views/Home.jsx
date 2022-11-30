@@ -7,8 +7,8 @@ function Home({ title, children }) {
   return (
     <Layout>
       <div className="container">
-        <button type="button" className="btn btn-info but">Сортировать по цене</button>
-        <button type="button" className="btn btn-info but count">Сортировать по наличию</button>
+        <button type="button" className="but">Сортировать по цене</button>
+        <button type="button" className="but">Сортировать по наличию</button>
       </div>
       <div key={Math.random() * 999999} className="container row row-cols-1 row-cols-md-2 g-4">
         {children.map((el) => (
@@ -51,7 +51,7 @@ function Home({ title, children }) {
                 {el.count}
 
               </p>
-              <button type="button" className="btn btn-info">Купить</button>
+              <button type="button" className="btn-info">Купить</button>
             </div>
           </div>
         ))}
