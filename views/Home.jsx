@@ -239,10 +239,7 @@ function Home({
               <p className="nal">
                 В наличии:
                 {' '}
-                <span>
-                  {el.count}
-                </span>
-
+                {el.count}
               </p>
               <button type="button" className="btn btn-info buy-btn">Купить</button>
             </p>
