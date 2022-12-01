@@ -58,6 +58,7 @@ priceButton?.addEventListener('click', async (event) => { // Сортировк�
 
 countButton?.addEventListener('click', async (event) => { // Сортировка по наличию !!!
   const container = document.querySelector('.row-cols-md-2');
+  console.log(container);
   event.preventDefault();
 
   if (markCount === false) {
@@ -65,14 +66,16 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
     const newDrugs = [];
 
     for (let i = 0; i < drugs.length; i += 1) {
+      // console.log(drugs[i].innerHTML);
       const peace = drugs[i].innerHTML.slice(drugs[i].innerHTML.indexOf('В наличии') + 11);
       const price = peace.slice(0, peace.indexOf('</p>'));
-      newDrugs.push(price.slice(0, price.indexOf('</')));
+      newDrugs.push(price.slice(6, price.indexOf('</')));
     }
 
     const drugsReplic = [...newDrugs];
     newDrugs.sort((a, b) => b - a);
     const resultDrugs = [];
+    // console.log(newDrugs)
     for (let i = 0; i < newDrugs.length; i += 1) {
       drugs[i].remove();
       resultDrugs.push(drugsReplic.indexOf(newDrugs[i]));
@@ -82,6 +85,8 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
     for (let i = 0; i < resultDrugs.length; i += 1) {
       html += `<div data-id="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
     }
+    // console.log(container)
+    // console.log(html)
 
     container.innerHTML = html;
     markCount = true;
@@ -102,25 +107,25 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
 });
 
 drugsContainer?.addEventListener('click', async (event) => { // Уменьшение количества товара
-  if (event.target.innerText === 'Купить') {
-    event.preventDefault();
-    const littleDiv = event.target.closest('div');
-    const href = littleDiv.dataset.id;
-    await fetch(`/basket/${href}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
-    const parent = littleDiv.outerHTML;
-    const nal = parent.slice(parent.indexOf('В наличии') + 11);
-    const resultCount = 'В наличии: ' + (+nal.slice(0, +nal.indexOf('</')) - 1).toString();
-    const newParent = parent.replace(/В наличии: \d{1,}/, resultCount);
-    const sliceParent = newParent.slice(newParent.indexOf('class="card ">') + 14);
-    const sliceagain = sliceParent.slice(0, sliceParent.length - 6);
-    littleDiv.innerHTML = sliceagain;
-  }
-});
+    if (event.target.innerText === 'Купить') {
+      event.preventDefault();
+      const littleDiv = event.target.closest('div');
+      const href = littleDiv.dataset.id;
+      await fetch(`/basket/${href}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+      const parent = littleDiv.outerHTML;
+      const nal = parent.slice(parent.indexOf('В наличии') + 11);
+      const resultCount = 'В наличии: ' + (+nal.slice(0, +nal.indexOf('</')) - 1).toString();
+      const newParent = parent.replace(/В наличии: \d{1,}/, resultCount);
+      const sliceParent = newParent.slice(newParent.indexOf('class="card ">') + 14);
+      const sliceagain = sliceParent.slice(0, sliceParent.length - 6);
+      littleDiv.innerHTML = sliceagain;
+    }
+  });
 
 selectContainer?.addEventListener('click', async (event) => { // Взять халяву
   if (event.target.innerText === 'Получить') {
