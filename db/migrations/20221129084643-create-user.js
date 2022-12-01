@@ -22,6 +22,18 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      select1: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      select2: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      select3: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -10,12 +10,12 @@ function Home({ title, children, user, select }) {
         {select.map((el) => (
           <div className="card ">
             <img src={`${el['Drug.logo']}`} className="card-img-top" alt="" />
-            <div className="card-body">
+            <span className="card-body">
               <h5>{el['Drug.title']}</h5>
               <p>
                 В наличии: {el['Drug.count']}</p>
               <button type="button" className="btn btn-info">Получить</button>
-            </div>
+            </span>
           </div>
         ))}
       </div>
