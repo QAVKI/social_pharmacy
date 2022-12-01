@@ -19,7 +19,9 @@ route.get('/', async (req, res) => {
   });
   const children = await Drug.findAll({ raw: true });
   // console.log(children);
-  render(Home, { title: 'home', children, select, user }, res);
+  render(Home, {
+    title: 'home', children, select, user,
+  }, res);
 });
 
 module.exports = route;
