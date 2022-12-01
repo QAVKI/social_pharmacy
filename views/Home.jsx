@@ -70,7 +70,8 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="6">
-                <input className="appointment" date-day="2" placeholder="Халява" readonly="true" required="true" type="text" />
+                <input className="appointment" date-day="2" placeholder={`${select[0]['Drug.title']}, ${select[1]['Drug.title']}, ${select[2]['Drug.title']}`} readonly="true"  required="true" type="text" />
+
                 <span style={{ color: "#dc143c", border: "black" }}>2</span>
                 <em />
               </label>
@@ -99,7 +100,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="13">
-                <input className="appointment" date-day="9" placeholder="Халява" readonly="true" required="true" type="text" />
+                <input className="appointment" date-day="9" placeholder="Эльбрусин, Корейша Д3, Парамзин плюс" readonly="true"  required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>9</span>
                 <em />
               </label>
@@ -128,7 +129,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="20">
-                <input className="appointment" date-day="16" placeholder="Халява" readonly="true" required="true" type="text" />
+                <input className="appointment" date-day="16" placeholder="Бубеева лайт, Учкин чек, Васькова плюс" readonly="true"  required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>16</span>
                 <em />
               </label>
@@ -157,7 +158,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="27">
-                <input className="appointment" date-day="23" placeholder="Халява" readonly="true" required="true" type="text" />
+                <input className="appointment" date-day="23" placeholder="Забродин ультра, Желобцов плюс, Втораяфазин" readonly="true"  required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>23</span>
                 <em />
               </label>
@@ -186,7 +187,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="34">
-                <input className="appointment" date-day="30" placeholder="Халява" readonly="true" required="true" type="text" />
+                <input className="appointment" date-day="30" placeholder="День социальной помощи" readonly="true"  required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>30</span>
                 <em />
               </label>
