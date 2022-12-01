@@ -27,7 +27,7 @@ function Registration() {
               className="form-control"
               name="email"
               type="text"
-              pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$"
+              pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z._%+-]+\.[A-Za-z]{2,}$"
               required
             />
           </div>
@@ -42,7 +42,7 @@ function Registration() {
               minLength={3}
             />
           </div>
-          <button type="submit" className="btn btn-light">
+          <button type="submit" className="btn-light">
             Зарегистрироваться
           </button>
         </form>

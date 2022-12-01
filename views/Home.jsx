@@ -3,7 +3,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 // eslint-disable-next-line no-unused-vars
-function Home({ title, children, select, user }) {
+function Home({ title, children, user, select }) {
   return (
     <Layout user={user}>
       <div className="container raw row row-cols-1">
@@ -19,7 +19,6 @@ function Home({ title, children, select, user }) {
           </div>
         ))}
       </div>
-
       <div className="container">
         <button type="button" className="btn btn-info but">Сортировать по цене</button>
         <button type="button" className="btn btn-info but count">Сортировать по наличию</button>
@@ -63,6 +62,7 @@ function Home({ title, children, select, user }) {
                 В наличии:
                 {' '}
                 {el.count}
+
               </p>
               <button type="button" className="btn btn-info buy-btn">Купить</button>
             </div>

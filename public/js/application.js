@@ -1,13 +1,12 @@
 const priceButton = document.querySelector('.but');
 const countButton = document.querySelector('.count');
 const drugs = document.querySelectorAll('[data-log]');
-// console.log(drugs, '--------------------------------------------------------------------------------------');
 
 let htmlArr;
 let mark = false;
 let markCount = false;
 
-priceButton.addEventListener('click', async (event) => { // Сортировка по цене !!!
+priceButton?.addEventListener('click', async (event) => { // Сортировка по цене !!!
   const container = document.querySelector('.row-cols-md-2');
   event.preventDefault();
   if (mark === false) {
@@ -55,7 +54,7 @@ priceButton.addEventListener('click', async (event) => { // Сортировка
   }
 });
 
-countButton.addEventListener('click', async (event) => { // Сортировка по наличию !!!
+countButton?.addEventListener('click', async (event) => { // Сортировка по наличию !!!
   const container = document.querySelector('.row-cols-md-2');
   console.log(container);
   event.preventDefault();
