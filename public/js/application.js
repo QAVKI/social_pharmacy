@@ -3,8 +3,6 @@ const countButton = document.querySelector('.count');
 const drugs = document.querySelectorAll('[data-id]');
 const drugsContainer = document.querySelector('#shop-container');
 const selectContainer = document.querySelector('.select');
-console.log(selectContainer);
-
 
 let htmlArr;
 let mark = false;
@@ -127,10 +125,11 @@ drugsContainer?.addEventListener('click', async (event) => { // Уменьшен
 selectContainer?.addEventListener('click', async (event) => { // Взять халяву
   if (event.target.innerText === 'Получить') {
     event.preventDefault();
-    console.log(event);
+    const littleDiv = event.target.closest('div');
+    console.log(littleDiv.childNodes[1].childNodes[0].textContent)
+    // console.log(event);
     const button = event.target;
-    console.log(button);
-    // button.style.disabled="true"
+    // console.log(button);
     button.setAttribute('disabled', true);
   }
 });

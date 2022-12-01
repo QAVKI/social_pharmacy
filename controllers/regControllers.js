@@ -12,7 +12,7 @@ const regUser = async (req, res) => {
   const { login, password, email } = req.body;
   try {
     const hashPas = await bcrypt.hash(password, 10);
-    const newUser = await User.create({ login, password: hashPas, email });
+    const newUser = await User.create({ login, password: hashPas, email, select1: '', select2: '', select3: ''});
     console.log('новый юзер======>>>>>>>>>>>>>', newUser);
     const message = {
       from: '<zhtmn@icloud.com>',
