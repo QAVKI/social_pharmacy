@@ -13,4 +13,18 @@ route.get('/', (req, res) => {
   render(BasketViews, { title: 'basket', user }, res);
 });
 
+route.put('/:id', async (req, res) => {
+  const drugcount = await Drug.findOne({ where: { id: +req.params.id } });
+  // console.log(drugcount);
+  console.log(req.session, '---------------------------');
+  await Drug.update({
+    count: drugcount.count - 1,
+  }, {
+    where: { id: req.params.id },
+    returning: true,
+    plain: true,
+  });
+  res.sendStatus(200);
+});
+
 module.exports = route;

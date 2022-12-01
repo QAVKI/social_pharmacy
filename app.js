@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
 
+const updateSale = require('./updateSale');
+updateSale()
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport(
@@ -76,6 +78,8 @@ app.use('/signout', signOutRoutes);
 app.use('/home', homeRoutes);
 app.use('/sale', saleRoutes);
 app.use('/basket', basketRoutes);
+
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {

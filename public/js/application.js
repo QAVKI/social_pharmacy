@@ -1,6 +1,10 @@
 const priceButton = document.querySelector('.but');
 const countButton = document.querySelector('.count');
-const drugs = document.querySelectorAll('[data-log]');
+const drugs = document.querySelectorAll('[data-id]');
+const drugsContainer = document.querySelector('#shop-container');
+const selectContainer = document.querySelector('.select');
+console.log(selectContainer);
+
 
 let htmlArr;
 let mark = false;
@@ -64,26 +68,27 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
     const newDrugs = [];
 
     for (let i = 0; i < drugs.length; i += 1) {
-      console.log(drugs[i].innerHTML);
+      // console.log(drugs[i].innerHTML);
       const peace = drugs[i].innerHTML.slice(drugs[i].innerHTML.indexOf('В наличии') + 11);
       const price = peace.slice(0, peace.indexOf('</p>'));
-      newDrugs.push(price);
+      newDrugs.push(price.slice(6, price.indexOf('</')));
     }
 
     const drugsReplic = [...newDrugs];
     newDrugs.sort((a, b) => b - a);
     const resultDrugs = [];
-
+    // console.log(newDrugs)
     for (let i = 0; i < newDrugs.length; i += 1) {
       drugs[i].remove();
       resultDrugs.push(drugsReplic.indexOf(newDrugs[i]));
     }
-
     let html = '';
 
     for (let i = 0; i < resultDrugs.length; i += 1) {
       html += `<div data-log="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
     }
+    // console.log(container)
+    // console.log(html)
 
     container.innerHTML = html;
     markCount = true;
@@ -100,5 +105,32 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
 
     container.innerHTML = html;
     markCount = false;
+  }
+});
+
+drugsContainer?.addEventListener('click', async (event) => { // Уменьшение количества товара
+  if (event.target.innerText === 'Купить') {
+    event.preventDefault();
+    const littleDiv = event.target.closest('div');
+    const count = Number(littleDiv.childNodes[4].childNodes[1].textContent);
+    littleDiv.childNodes[4].childNodes[1].textContent = count - 1;
+    const href = littleDiv.dataset.id;
+    await fetch(`/basket/${href}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+  }
+});
+
+selectContainer?.addEventListener('click', async (event) => { // Взять халяву
+  if (event.target.innerText === 'Получить') {
+    event.preventDefault();
+    console.log(event);
+    const button = event.target;
+    console.log(button);
+    // button.style.disabled="true"
+    button.setAttribute('disabled', true);
   }
 });
