@@ -14,7 +14,6 @@ route.get('/', async (req, res) => {
   } else {
     render(Sale, { title: 'sale', cards, user }, res);
   }
-  //console.log('CARDS================>', cards);
 });
 
 module.exports = route;

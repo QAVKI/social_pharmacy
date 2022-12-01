@@ -16,21 +16,11 @@ function Home({
               <h5>{el['Drug.title']}</h5>
               {userInfo.select1 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] || userInfo.select3 === el['Drug.title'] ? (
                 <>
-                  <p>
-                    В наличии:
-                    {' '}
-                    {el['Drug.count']}
-                  </p>
-                  <button disabled="true" type="button" className="btn btn-info">Получить</button>
+                  <button id={user} disabled="true" type="button" className="btn btn-info">Получить</button>
                 </>
               ) : (
                 <>
-                  <p>
-                    В наличии:
-                    {' '}
-                    {el['Drug.count']}
-                  </p>
-                  <button type="button" className="btn btn-info">Получить</button>
+                  <button id={user} type="button" className="btn btn-info">Получить</button>
                 </>
               )}
             </span>
@@ -241,7 +231,7 @@ function Home({
                 {' '}
                 {el.count}
               </p>
-              <button type="button" className="btn btn-info buy-btn">Купить</button>
+              <button type="button" id={user} className="btn btn-info buy-btn">Купить</button>
             </p>
           </div>
         ))}

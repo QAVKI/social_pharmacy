@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
 
-const updateSale = require('./updateSale');
+const updateSale = require('./controllers/updateSale');
 updateSale()
 const nodemailer = require('nodemailer');
 
