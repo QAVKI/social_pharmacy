@@ -14,15 +14,17 @@ route.get('/', (req, res) => {
 });
 
 route.put('/:id', async (req, res) => {
-  console.log(req.body)
-  const drug = await Drug.update({
-    count: req.body.count - 1,
+  const drugcount = await Drug.findOne({ where: { id: +req.params.id } });
+  // console.log(drugcount);
+  console.log(req.session, '---------------------------');
+  await Drug.update({
+    count: drugcount.count - 1,
   }, {
     where: { id: req.params.id },
     returning: true,
     plain: true,
   });
-  res.json({ isUpdateSuccessful: true, entryID: drug[1].id });
+  res.sendStatus(200);
 });
 
 module.exports = route;
