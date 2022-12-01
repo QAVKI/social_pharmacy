@@ -6,7 +6,7 @@ const Layout = require('./Layout');
 function Home({ title, children, user, select }) {
   return (
     <Layout user={user}>
-      <div className="container raw row row-cols-1">
+      <div className="container raw row row-cols-1 select">
         {select.map((el) => (
           <div className="card ">
             <img src={`${el['Drug.logo']}`} className="card-img-top" alt="" />
@@ -25,7 +25,7 @@ function Home({ title, children, user, select }) {
       </div>
       <div key={Math.random() * 999999} id="shop-container" className="container row row-cols-1 row-cols-md-2 g-4">
         {children.map((el) => (
-          <div data-id={el.id} id={`s${el.sale}`} className="card ">
+          <div data-id={el.id} data-count={el.count} id={`s${el.sale}`} className="card ">
             <img src={`${el.logo}`} className="card-img-top" alt="" />
             <p className="card-body">
               {el.sale === 0 ? (
@@ -58,10 +58,12 @@ function Home({ title, children, user, select }) {
                   </p>
                 </>
               )}
-              <p>
+              <p className="nal">
                 В наличии:
                 {' '}
-                {el.count}
+                <span>
+                  {el.count}
+                </span>
 
               </p>
               <button type="button" className="btn btn-info buy-btn">Купить</button>
