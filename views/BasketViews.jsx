@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Basket({user}) {
+function BasketViews({user}) {
   return (
     <Layout user={user}>
 
@@ -24,4 +24,4 @@ function Basket({user}) {
   );
 }
 
-module.exports = Basket;
+module.exports = BasketViews;
