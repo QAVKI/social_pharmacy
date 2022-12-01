@@ -20,7 +20,9 @@ route.get('/', async (req, res) => {
   console.log(select);
   const children = await Drug.findAll({ raw: true });
   // console.log(children);
-  render(Home, { title: 'home', children, select, user }, res);
+  render(Home, {
+    title: 'home', children, select, user,
+  }, res);
 });
 
 module.exports = route;

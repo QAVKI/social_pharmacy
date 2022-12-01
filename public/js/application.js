@@ -1,6 +1,7 @@
 const priceButton = document.querySelector('.but');
 const countButton = document.querySelector('.count');
-const drugs = document.querySelectorAll('[data-log]');
+const drugs = document.querySelectorAll('[data-id]');
+const drugsContainer = document.querySelector('#shop-container');
 
 let htmlArr;
 let mark = false;
@@ -100,5 +101,22 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
 
     container.innerHTML = html;
     markCount = false;
+  }
+});
+
+drugsContainer.addEventListener('click', async (event) => {
+  if (event.target.innerText === 'Купить') {
+    event.preventDefault();
+    const littleDiv = event.target.closest('div');
+    const div = littleDiv.closest('div');
+    console.log(div);
+    const href = div.dataset.id;
+    console.log(href);
+    await fetch(`/basket/${href}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
   }
 });

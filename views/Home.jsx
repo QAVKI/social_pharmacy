@@ -25,9 +25,9 @@ function Home({ title, children, user, select }) {
       </div>
       <div key={Math.random() * 999999} id="shop-container" className="container row row-cols-1 row-cols-md-2 g-4">
         {children.map((el) => (
-          <div data-log="1" id={`s${el.sale}`} className="card ">
+          <div data-id={el.id} id={`s${el.sale}`} className="card ">
             <img src={`${el.logo}`} className="card-img-top" alt="" />
-            <div className="card-body">
+            <p className="card-body">
               {el.sale === 0 ? (
                 <>
                   <h5>{el.title}</h5>
@@ -65,7 +65,7 @@ function Home({ title, children, user, select }) {
 
               </p>
               <button type="button" className="btn btn-info buy-btn">Купить</button>
-            </div>
+            </p>
           </div>
         ))}
       </div>
