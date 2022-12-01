@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 
 // eslint-disable-next-line no-unused-vars
 function Home({
-  title, children, user, select,
+  title, children, user, select, userInfo,
 }) {
   return (
     <Layout user={user}>
@@ -14,13 +14,25 @@ function Home({
             <img src={`${el['Drug.logo']}`} className="card-img-top" alt="" />
             <span className="card-body">
               <h5>{el['Drug.title']}</h5>
-              <p>
-                В наличии:
-                {' '}
-                {el['Drug.count']}
-
-              </p>
-              <button type="button" className="btn btn-info">Получить</button>
+              {userInfo.select1 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] ? (
+                <>
+                  <p>
+                    В наличии:
+                    {' '}
+                    {el['Drug.count']}
+                  </p>
+                  <button disabled="true" type="button" className="btn btn-info">Получить</button>
+                </>
+              ) : (
+                <>
+                  <p>
+                    В наличии:
+                    {' '}
+                    {el['Drug.count']}
+                  </p>
+                  <button type="button" className="btn btn-info">Получить</button>
+                </>
+              )}
             </span>
           </div>
         ))}
@@ -58,7 +70,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="6">
-                <input className="appointment" date-day="2" placeholder="Халява" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="2" placeholder="Халява" readonly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>2</span>
                 <em />
               </label>
@@ -87,7 +99,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="13">
-                <input className="appointment" date-day="9" placeholder="Халява" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="9" placeholder="Халява" readonly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>9</span>
                 <em />
               </label>
@@ -116,7 +128,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="20">
-                <input className="appointment" date-day="16" placeholder="Халява" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="16" placeholder="Халява" readonly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>16</span>
                 <em />
               </label>
@@ -145,7 +157,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="27">
-                <input className="appointment" date-day="23" placeholder="Халява" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="23" placeholder="Халява" readonly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>23</span>
                 <em />
               </label>
@@ -174,7 +186,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="34">
-                <input className="appointment" date-day="30" placeholder="Халява" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="30" placeholder="Халява" readonly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>30</span>
                 <em />
               </label>

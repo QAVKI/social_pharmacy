@@ -126,10 +126,15 @@ selectContainer?.addEventListener('click', async (event) => { // Взять ха
   if (event.target.innerText === 'Получить') {
     event.preventDefault();
     const littleDiv = event.target.closest('div');
-    console.log(littleDiv.childNodes[1].childNodes[0].textContent)
+    const hre = littleDiv.childNodes[1].childNodes[0].textContent;
     // console.log(event);
     const button = event.target;
-    // console.log(button);
     button.setAttribute('disabled', true);
+    await fetch(`/basket/select/${hre}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
   }
 });
