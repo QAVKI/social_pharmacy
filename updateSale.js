@@ -13,15 +13,18 @@ function updateSale() {
       truncate: true,
     });
     await Select.bulkCreate([{ drug_id: result[0].id, date: new Date(2022, 12, 1) }, { drug_id: result[1].id, date: new Date(2022, 12, 1) }, { drug_id: result[2].id, date: new Date(2022, 12, 1) }]);
-    await User.update({
-      select1: '',
-      select2: '',
-      select3: '',
-    }, {
-      where: {},
-      returning: true,
-      plain: true,
-    });
+    const users = await User.findAll({});
+    if (users !== undefined) {
+      await User.update({
+        select1: '',
+        select2: '',
+        select3: '',
+      }, {
+        where: {},
+        returning: true,
+        plain: true,
+      });
+    }
   }, 15000);
 }
 

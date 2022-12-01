@@ -9,14 +9,15 @@ const BasketViews = require('../views/BasketViews');
 
 route.get('/', (req, res) => {
   // Drug.findAll({ raw: true });
-  const user = req.session.newUser;
+  let user = req.session.newUser;
+  if (user === undefined) user = '';
   render(BasketViews, { title: 'basket', user }, res);
 });
 
 route.put('/:id', async (req, res) => {
   const drugcount = await Drug.findOne({ where: { id: +req.params.id } });
   // console.log(drugcount);
-  console.log(req.session, '---------------------------');
+  // console.log(req.session, '---------------------------');
   await Drug.update({
     count: drugcount.count - 1,
   }, {
@@ -30,31 +31,33 @@ route.put('/:id', async (req, res) => {
 route.put('/select/:id', async (req, res) => {
   // console.log(req.params.id);
   // console.log(req.session.newUser);
-  const user = await User.findOne({ where: { login: req.session.newUser } });
-  if (user.select1 === '') {
-    await User.update({
-      select1: req.params.id,
-    }, {
-      where: { id: user.id },
-      returning: true,
-      plain: true,
-    });
-  } else if (user.select2 === '') {
-    await User.update({
-      select2: req.params.id,
-    }, {
-      where: { id: user.id },
-      returning: true,
-      plain: true,
-    });
-  } else if (user.select3 === '') {
-    await User.update({
-      select3: req.params.id,
-    }, {
-      where: { id: user.id },
-      returning: true,
-      plain: true,
-    });
+  if (req.session.newUser !== undefined) {
+    const user = await User.findOne({ where: { login: req.session.newUser } });
+    if (user.select1 === '') {
+      await User.update({
+        select1: req.params.id,
+      }, {
+        where: { id: user.id },
+        returning: true,
+        plain: true,
+      });
+    } else if (user.select2 === '') {
+      await User.update({
+        select2: req.params.id,
+      }, {
+        where: { id: user.id },
+        returning: true,
+        plain: true,
+      });
+    } else if (user.select3 === '') {
+      await User.update({
+        select3: req.params.id,
+      }, {
+        where: { id: user.id },
+        returning: true,
+        plain: true,
+      });
+    }
   }
 });
 

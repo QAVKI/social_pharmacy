@@ -7,7 +7,7 @@ const render = require('../lib/render');
 const Home = require('../views/Home');
 
 route.get('/', async (req, res) => {
-  const user = req.session.newUser;
+  let user = req.session?.newUser;
   const select = await Select.findAll({
     atttibutes: 'drug_id',
     raw: true,
@@ -17,12 +17,27 @@ route.get('/', async (req, res) => {
       },
     ],
   });
-  const userInfo = await User.findOne({ where: { login: user } });
+  if (user === undefined) {
+    user = '';
+  }
+  let userInfo = await User.findOne({ where: { login: user } });
   const children = await Drug.findAll({ raw: true });
-  // console.log(children);
-  render(Home, {
-    title: 'home', children, select, user, userInfo,
-  }, res);
+  console.log(userInfo, '---------------------------------------------------')
+  if (userInfo) {
+    render(Home, {
+      title: 'home', children, select, user, userInfo,
+    }, res);
+  } else {
+    userInfo = {
+      select1: '',
+      select2: '',
+      select3: '',
+
+    }
+    render(Home, {
+      title: 'home', children, select, user, userInfo,
+    }, res);
+  }
 });
 
 module.exports = route;
