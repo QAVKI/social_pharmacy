@@ -3,7 +3,7 @@ const countButton = document.querySelector('.count');
 const drugs = document.querySelectorAll('[data-id]');
 const drugsContainer = document.querySelector('#shop-container');
 const selectContainer = document.querySelector('.select');
-
+const order = document.querySelector('.btn-success');
 let htmlArr;
 let mark = false;
 let markCount = false;
@@ -101,40 +101,57 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
   }
 });
 
-drugsContainer?.addEventListener('click', async (event) => { // Уменьшение количества товара
+drugsContainer?.addEventListener('click', async (event) => { // Уменьшение количества товара !!!
   if (event.target.innerText === 'Купить') {
     event.preventDefault();
-    const littleDiv = event.target.closest('div');
-    const href = littleDiv.dataset.id;
-    await fetch(`/basket/${href}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
-    const parent = littleDiv.outerHTML;
-    const nal = parent.slice(parent.indexOf('В наличии') + 11);
-    const resultCount = 'В наличии: ' + (+nal.slice(0, +nal.indexOf('</')) - 1).toString();
-    const newParent = parent.replace(/В наличии: \d{1,}/, resultCount);
-    const sliceParent = newParent.slice(newParent.indexOf('class="card ">') + 14);
-    const sliceagain = sliceParent.slice(0, sliceParent.length - 6);
-    littleDiv.innerHTML = sliceagain;
+    const userCheck = event.target.id;
+    if (userCheck !== '') {
+      const littleDiv = event.target.closest('div');
+      const href = littleDiv.dataset.id;
+      await fetch(`/basket/${href}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+      const parent = littleDiv.outerHTML;
+      const nal = parent.slice(parent.indexOf('В наличии') + 11);
+      const resultCount = 'В наличии: ' + (+nal.slice(0, +nal.indexOf('</')) - 1).toString();
+      const newParent = parent.replace(/В наличии: \d{1,}/, resultCount);
+      const sliceParent = newParent.slice(newParent.indexOf('class="card ">') + 14);
+      const sliceagain = sliceParent.slice(0, sliceParent.length - 6);
+      littleDiv.innerHTML = sliceagain;
+    }
   }
 });
 
-selectContainer?.addEventListener('click', async (event) => { // Взять халяву
+selectContainer?.addEventListener('click', async (event) => { // Взять халяву !!!
   if (event.target.innerText === 'Получить') {
     event.preventDefault();
-    const littleDiv = event.target.closest('div');
-    const hre = littleDiv.childNodes[1].childNodes[0].textContent;
-    console.log(hre);
-    const button = event.target;
-    button.setAttribute('disabled', true);
-    await fetch(`/basket/select/${hre}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
+    const userCheck = event.target.id;
+    if (userCheck !== '') {
+      const littleDiv = event.target.closest('div');
+      const hre = littleDiv.childNodes[1].childNodes[0].textContent;
+      const button = event.target;
+      button.setAttribute('disabled', true);
+      await fetch(`/basket/select/${hre}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+    }
   }
+});
+
+order?.addEventListener('click', async (event) => { // Оформить заказ !!!
+  const shopContainer = document.querySelector('#shop-container');
+  shopContainer.innerHTML = '';
+  event.preventDefault();
+  await fetch('/basket', {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  });
 });

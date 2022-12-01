@@ -6,7 +6,7 @@ const { Drug, Select, User } = require('../db/models');
 const render = require('../lib/render');
 const Home = require('../views/Home');
 
-route.get('/', async (req, res) => {
+route.get('/', async (req, res) => { // Отрисовка главной страницы
   let user = req.session?.newUser;
   const select = await Select.findAll({
     atttibutes: 'drug_id',
@@ -22,7 +22,6 @@ route.get('/', async (req, res) => {
   }
   let userInfo = await User.findOne({ where: { login: user } });
   const children = await Drug.findAll({ raw: true });
-  console.log(userInfo, '---------------------------------------------------')
   if (userInfo) {
     render(Home, {
       title: 'home', children, select, user, userInfo,

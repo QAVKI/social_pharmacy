@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-const { Drug, Select, User } = require('./db/models');
+const { Drug, Select, User } = require('../db/models');
 
 function updateSale() {
   setInterval(async () => {
