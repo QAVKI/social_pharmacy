@@ -110,6 +110,38 @@ module.exports = {
         updatedAt: new Date(),
       },
     ]);
+    await queryInterface.bulkInsert('Users', [
+      {
+        login: 'AdminPapa',
+        password: 123456,
+        email: 'idi.tudoy@yandex.ru',
+        select1: '',
+        select2: '',
+        select3: '',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
+    await queryInterface.bulkInsert('Selects', [
+      {
+        drug_id: 1,
+        date: new Date(2022, 12, 1),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        drug_id: 2,
+        date: new Date(2022, 12, 1),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        drug_id: 3,
+        date: new Date(2022, 12, 1),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
   },
 
   async down(queryInterface) {

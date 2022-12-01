@@ -36,7 +36,7 @@ priceButton?.addEventListener('click', async (event) => { // Сортировк�
     let html = '';
 
     for (let i = 0; i < resultDrugs.length; i += 1) {
-      html += `<div data-log="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
+      html += `<div data-id="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
     }
 
     container.innerHTML = html;
@@ -48,7 +48,7 @@ priceButton?.addEventListener('click', async (event) => { // Сортировк�
 
     let html = '';
     for (let i = 0; i < htmlArr.length; i += 1) {
-      html += `<div data-log="1" class="card ">` + htmlArr[i].innerHTML + `</div>`;
+      html += `<div data-id="1" class="card ">` + htmlArr[i].innerHTML + `</div>`;
     }
 
     container.innerHTML = html;
@@ -83,7 +83,7 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
     let html = '';
 
     for (let i = 0; i < resultDrugs.length; i += 1) {
-      html += `<div data-log="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
+      html += `<div data-id="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
     }
     // console.log(container)
     // console.log(html)
@@ -98,7 +98,7 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
     let html = '';
 
     for (let i = 0; i < htmlArr.length; i += 1) {
-      html += `<div data-log="1" class="card ">` + htmlArr[i].innerHTML + `</div>`;
+      html += `<div data-id="1" class="card ">` + htmlArr[i].innerHTML + `</div>`;
     }
 
     container.innerHTML = html;
@@ -111,8 +111,11 @@ drugsContainer?.addEventListener('click', async (event) => { // Уменьшен
     event.preventDefault();
     const littleDiv = event.target.closest('div');
     const count = Number(littleDiv.childNodes[4].childNodes[1].textContent);
+    console.log(littleDiv.childNodes[4].childNodes[1]);
     littleDiv.childNodes[4].childNodes[1].textContent = count - 1;
     const href = littleDiv.dataset.id;
+    console.log(littleDiv.dataset.id);
+    console.log(href);
     await fetch(`/basket/${href}`, {
       method: 'PUT',
       headers: {
@@ -127,7 +130,7 @@ selectContainer?.addEventListener('click', async (event) => { // Взять ха
     event.preventDefault();
     const littleDiv = event.target.closest('div');
     const hre = littleDiv.childNodes[1].childNodes[0].textContent;
-    // console.log(event);
+    console.log(hre);
     const button = event.target;
     button.setAttribute('disabled', true);
     await fetch(`/basket/select/${hre}`, {

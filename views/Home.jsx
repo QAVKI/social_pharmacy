@@ -9,12 +9,12 @@ function Home({
   return (
     <Layout user={user}>
       <div className="container raw row row-cols-1 select">
-        {select.map((el) => (
+        {select?.map((el) => (
           <div className="card ">
             <img src={`${el['Drug.logo']}`} className="card-img-top" alt="" />
             <span className="card-body">
               <h5>{el['Drug.title']}</h5>
-              {userInfo.select1 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] ? (
+              {userInfo.select1 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] || userInfo.select3 === el['Drug.title'] ? (
                 <>
                   <p>
                     В наличии:
@@ -129,7 +129,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="20">
-                <input className="appointment" date-day="16" placeholder="Бубеева лайт, Учкин чек, Васькова плюс" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="16" placeholder="Бубеева лайт, Учкин чек, Васькова плюс" readOnly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>16</span>
                 <em />
               </label>
@@ -158,7 +158,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="27">
-                <input className="appointment" date-day="23" placeholder="Забродин ультра, Желобцов плюс, Втораяфазин" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="23" placeholder="Забродин ультра, Желобцов плюс, Втораяфазин" readOnly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>23</span>
                 <em />
               </label>
@@ -187,7 +187,7 @@ function Home({
                 <em />
               </label>
               <label className="day" data-day="34">
-                <input className="appointment" date-day="30" placeholder="День социальной помощи" readonly="true"  required="true" type="text" />
+                <input className="appointment" date-day="30" placeholder="День социальной помощи" readOnly="true" required="true" type="text" />
                 <span style={{ color: "#dc143c", border: "black" }}>30</span>
                 <em />
               </label>
