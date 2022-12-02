@@ -25,7 +25,7 @@ function updateSale() {
         plain: true,
       });
     }
-  }, 15000);
+  }, 60000);
 }
 
 module.exports = updateSale;

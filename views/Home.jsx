@@ -14,7 +14,7 @@ function Home({
             <img src={`${el['Drug.logo']}`} className="card-img-top" alt="" />
             <span className="card-body">
               <h5>{el['Drug.title']}</h5>
-              {userInfo.select1 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] || userInfo.select3 === el['Drug.title'] ? (
+              {userInfo.select1 === el['Drug.title'] || userInfo.select2 === el['Drug.title'] || userInfo.select3 === el['Drug.title'] || userInfo.select1 === `+${el['Drug.title']}` || userInfo.select2 === `+${el['Drug.title']}` || userInfo.select3 === `+${el['Drug.title']}` ? (
                 <>
                   <button id={user} disabled="true" type="button" className="btn btn-info">Получить</button>
                 </>
