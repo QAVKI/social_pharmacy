@@ -64,11 +64,9 @@ function BasketViews({ user, basket }) {
         </div>
         <div className="d-sm-flex flex-column flex-wrap align-item-center text-center">
           <p className="fs-5">
-            Скидка:
-          </p>
-          <p className="fs-5">
             Итого:
-
+            {' '}
+            {basket.reduce((acc, curr) => acc + curr.count * curr['Drug.price'], 0)}
           </p>
           <button type="button" className="btn-success">Оформить заказ</button>
         </div>
