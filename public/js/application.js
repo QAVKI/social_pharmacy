@@ -27,8 +27,10 @@ priceButton?.addEventListener('click', async (event) => { // Сортировк�
     const drugsReplic = [...newDrugs];
     newDrugs.sort((a, b) => a - b);
     const resultDrugs = [];
+    const resultId = [];
 
     for (let i = 0; i < newDrugs.length; i += 1) {
+      resultId.push(drugs[i].dataset.id);
       drugs[i].remove();
       resultDrugs.push(drugsReplic.indexOf(newDrugs[i]));
     }
@@ -36,19 +38,21 @@ priceButton?.addEventListener('click', async (event) => { // Сортировк�
     let html = '';
 
     for (let i = 0; i < resultDrugs.length; i += 1) {
-      html += `<div data-id="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
+      html += `<div data-id=${resultId[drugsReplic.indexOf(newDrugs[i])]} class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
     }
 
     container.innerHTML = html;
     mark = true;
   } else {
+    const resultId = [];
     for (let i = 0; i < htmlArr.length; i += 1) {
+      resultId.push(drugs[i].dataset.id);
       drugs[i].remove();
     }
 
     let html = '';
     for (let i = 0; i < htmlArr.length; i += 1) {
-      html += `<div data-id="1" class="card ">` + htmlArr[i].innerHTML + `</div>`;
+      html += `<div data-id=${resultId[i]} class="card ">` + htmlArr[i].innerHTML + `</div>`;
     }
 
     container.innerHTML = html;
@@ -73,27 +77,32 @@ countButton?.addEventListener('click', async (event) => { // Сортировк�
     const drugsReplic = [...newDrugs];
     newDrugs.sort((a, b) => b - a);
     const resultDrugs = [];
+    const resultId = [];
     for (let i = 0; i < newDrugs.length; i += 1) {
+      resultId.push(drugs[i].dataset.id);
       drugs[i].remove();
       resultDrugs.push(drugsReplic.indexOf(newDrugs[i]));
     }
     let html = '';
 
     for (let i = 0; i < resultDrugs.length; i += 1) {
-      html += `<div data-id="1" class="card ">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
+      console.log(resultDrugs);
+      html += `<div data-id=${resultId[drugsReplic.indexOf(newDrugs[i])]} class="card">` + htmlArr[drugsReplic.indexOf(newDrugs[i])].innerHTML + `</div>`;
     }
 
     container.innerHTML = html;
     markCount = true;
   } else {
+    const resultId = [];
     for (let i = 0; i < htmlArr.length; i += 1) {
+      resultId.push(drugs[i].dataset.id);
       drugs[i].remove();
     }
 
     let html = '';
 
     for (let i = 0; i < htmlArr.length; i += 1) {
-      html += `<div data-id="1" class="card ">` + htmlArr[i].innerHTML + `</div>`;
+      html += `<div data-id=${resultId[i]} class="card">` + htmlArr[i].innerHTML + `</div>`;
     }
 
     container.innerHTML = html;
@@ -107,6 +116,8 @@ drugsContainer?.addEventListener('click', async (event) => { // Уменьшен
     const userCheck = event.target.id;
     if (userCheck !== '') {
       const littleDiv = event.target.closest('div');
+      const coller = event.target;
+      coller.style.background = '#7bd0c5';
       const href = littleDiv.dataset.id;
       await fetch(`/basket/${href}`, {
         method: 'PUT',

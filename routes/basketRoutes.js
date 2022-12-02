@@ -27,10 +27,41 @@ route.get('/', async (req, res) => {
     });
     if (basket) {
       for (let i = 0; i < basket.length; i += 1) {
-        if (userdb.select1 === basket[i]['Drug.title']) basket[i]['Drug.price'] = Math.round(basket[i]['Drug.price'] * (basket[i].count - 1)) / (basket[i].count);
-        if (userdb.select2 === basket[i]['Drug.title']) basket[i]['Drug.price'] = Math.round(basket[i]['Drug.price'] * (basket[i].count - 1)) / (basket[i].count);
-        if (userdb.select3 === basket[i]['Drug.title']) basket[i]['Drug.price'] = Math.round(basket[i]['Drug.price'] * (basket[i].count - 1)) / (basket[i].count);
+        if (userdb.select1 === basket[i]['Drug.title']) {
+          basket[i]['Drug.price'] = Math.round(basket[i]['Drug.price'] * (basket[i].count - 1)) / (basket[i].count);
+          await User.update({
+            select1: `+${userdb.select1}`,
+          }, {
+            where: { id: userdb.id },
+            returning: true,
+            plain: true,
+          });
+        }
+        if (userdb.select2 === basket[i]['Drug.title']) {
+          basket[i]['Drug.price'] = Math.round(basket[i]['Drug.price'] * (basket[i].count - 1)) / (basket[i].count);
+          await User.update({
+            select2: `+${userdb.select2}`,
+          }, {
+            where: { id: userdb.id },
+            returning: true,
+            plain: true,
+          });
+        }
+        if (userdb.select3 === basket[i]['Drug.title']) {
+          basket[i]['Drug.price'] = Math.round(basket[i]['Drug.price'] * (basket[i].count - 1)) / (basket[i].count);
+          await User.update({
+            select3: `+${userdb.select3}`,
+          }, {
+            where: { id: userdb.id },
+            returning: true,
+            plain: true,
+          });
+        }
       }
+      if (userdb.select1[0] === '+') userdb.select1 = userdb.select1.slice(1, userdb.select1.length);
+      if (userdb.select2[0] === '+') userdb.select2 = userdb.select2.slice(1, userdb.select2.length);
+      if (userdb.select3[0] === '+') userdb.select3 = userdb.select3.slice(1, userdb.select3.length);
+      // console.log(userdb.select1[0]);
     }
   } else {
     basket = [{
