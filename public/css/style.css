@@ -22,10 +22,22 @@
 
 .box-call{
   max-height: 180px;
+  /* border: 2px solid red; */
+}
+.calendar-container {
+  height: 420px;
+  position: relative !important;
+}
+
+.priceButton {
+  position: absolute !important;
+  flex-direction: row;
+  top: 360px;
+  left: -150px;
 }
 
 .btn-success {
-  width: 1100px;
+  width: 1000px;
   height: 40px;
   color: ghostwhite;
   background-color: lightskyblue;
@@ -77,8 +89,9 @@
 }
 
 body {
-  background-size: 100%;
-  background-image: url("/fon.png");
+  background-size: 110%;
+  background-image: url("/fon2.png");
+
 }
 
 .nav-item {
@@ -139,6 +152,7 @@ main {
 
 
 section.calendar {
+  margin: 210px 20px 200px 850px;
   background-color: #7bd0c5;
   font-family: "Dosis", sans-serif;
   color: #fff;
@@ -271,6 +285,7 @@ section.calendar div.hidden {
 }
 
   @media (min-width: 768px) {
+
     .container {
       width: 750px;
     }
@@ -278,6 +293,21 @@ section.calendar div.hidden {
   @media (min-width: 992px) and (max-width: 1199px) {
     .container {
       width: 970px;
+    }
+    section.calendar {
+      /* margin: 210px 20px 200px 850px; */
+      background-color: #7bd0c5;
+      font-family: "Dosis", sans-serif;
+      color: #fff;
+      height: 400px;
+      left: -100px;
+      width: 400px;
+      padding: 45px;
+      /* top: 50%; */
+      /* left:50%; */
+      transform: translateY(-50%) translateX(-50%);
+      box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.6);
+      border-radius: 5px;
     }
     .nav-item {
       background-color: aquamarine;

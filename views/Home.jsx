@@ -27,9 +27,9 @@ function Home({
           </div>
         ))}
       </div>
-      <div className="container raw row row-cols-1">
-        <div className="priceButton">
-          <div><button type="button" className="btn btn-info but">Сортировать по цене</button></div>
+      <div className="container raw row row-cols-1 calendar-container">
+        <div className="priceButton d-flex justify-content-space-around">
+          <div><button type="button" className="btn btn-info but sort-btn">Сортировать по цене</button></div>
           <div><button type="button" className="btn btn-info but count">Сортировать по наличию</button></div>
         </div>
         <div className="box-call">
