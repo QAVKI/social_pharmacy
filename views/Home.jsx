@@ -231,7 +231,7 @@ function Home({
                 {' '}
                 {el.count}
               </p>
-              <button type="button" id={user} className="btn btn-info buy-btn">Купить</button>
+              <button type="button" id={user} className={el.check ? 'btn btn-info buy-btn green' : 'btn btn-info buy-btn'}>Купить</button>
             </p>
           </div>
         ))}

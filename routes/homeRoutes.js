@@ -22,12 +22,17 @@ route.get('/', async (req, res) => { // Отрисовка главной стр
   }
   let userInfo = await User.findOne({ where: { login: user } });
   const children = await Drug.findAll({ raw: true });
-  console.log(userInfo);
   if (userInfo) {
     if (userInfo.select1[0] === '+') userInfo.select1.slice(1, userInfo.select1.length);
     if (userInfo.select2[0] === '+') userInfo.select2.slice(1, userInfo.select2.length);
     if (userInfo.select3[0] === '+') userInfo.select3.slice(1, userInfo.select3.length);
-    // console.log(userInfo, '-----------------------------------------------')
+    for (let i = 0; i < children.length; i += 1) {
+      const order = await Basket.findOne({where: {user_id: userInfo.id, drug_id: children[i].id}});
+      if (order !== null) {
+        children[i].check = true;
+      }
+      console.log(children[i].check);
+    }
     render(Home, {
       title: 'home', children, select, user, userInfo,
     }, res);

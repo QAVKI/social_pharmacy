@@ -1,6 +1,7 @@
 const express = require('express');
 
 const route = express.Router();
+const mailer = require('../app');
 
 const { Basket, Drug, Select, User } = require('../db/models');
 
@@ -153,8 +154,18 @@ route.put('/select/:id', async (req, res) => {
 
 route.delete('/', async (req, res) => {
   if (req.session.newUser !== undefined) {
-    const user = await User.findOne({ where: { login: req.session.newUser } });
-    await Basket.destroy({ where: { user_id: user.id }, returning: true, plain: true });
+    if (req.session.newUser !== undefined) {
+      const user = await User.findOne({ where: { login: req.session.newUser } });
+      await Basket.destroy({ where: { user_id: user.id }, returning: true, plain: true });
+      const message = {
+        from: '<zhtmn@icloud.com>',
+        to: user.email,
+        subject: 'Order',
+        text: 'Поздравляем вас c покупкой, приходите к нам ещё',
+      };
+      // console.log(message);
+      mailer(message);
+    }
   }
 });
 

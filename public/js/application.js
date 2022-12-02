@@ -157,6 +157,8 @@ selectContainer?.addEventListener('click', async (event) => { // Взять ха
 
 order?.addEventListener('click', async (event) => { // Оформить заказ !!!
   const shopContainer = document.querySelector('#shop-container');
+  const itog = document.querySelector('.fs-5');
+  itog.innerHTML = '';
   shopContainer.innerHTML = '';
   event.preventDefault();
   await fetch('/basket', {

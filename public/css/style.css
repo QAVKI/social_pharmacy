@@ -141,6 +141,10 @@ main {
   height: 1000px;
 }
 
+.btn.btn-info.buy-btn.green{
+  background-color: #7bd0c5;
+}
+
 .price {
   background-image: linear-gradient(to bottom right, transparent 45%, rgb(0, 0, 0), transparent 51%);
 }
