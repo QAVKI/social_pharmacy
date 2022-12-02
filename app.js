@@ -7,7 +7,7 @@ const path = require('path');
 require('dotenv').config();
 
 const updateSale = require('./updateSale');
-updateSale()
+updateSale();
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport(
